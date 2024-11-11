@@ -1,5 +1,14 @@
-FROM ubuntu:22.04
+# Usa una imagen base de Python
+FROM python:3.8
+
+# Establece el directorio de trabajo
 WORKDIR /app
-COPY src /app
-RUN apt-get update && apt-get install -y python3
-CMD [ "python3", "-m", "http.server" ]
+
+# Copia el archivo de aplicación a la imagen
+COPY . /app
+
+# Expone el puerto 8081
+EXPOSE 8081
+
+# Comando para ejecutar la aplicación
+CMD ["python3", "-m", "http.server", "8081"]
