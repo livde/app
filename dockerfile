@@ -1,5 +1,5 @@
-# Usa una imagen base de nginx
-FROM nginx:latest
-
-# Copia el archivo HTML a la carpeta predeterminada de Nginx
-COPY index.html /usr/share/nginx/html/index.html
+FROM ubuntu:22.04
+WORKDIR /app
+COPY src /app
+RUN apt-get update && apt-get install -y python3
+CMD [ "python3", "-m", "http.server" ]

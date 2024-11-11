@@ -1,7 +1,6 @@
-version: '3'
+version: '3.8'
 services:
   web:
-    build:
-      context: .
+    image: miapp
     ports:
-      - "8081:80"
+      - "8081:8000"
